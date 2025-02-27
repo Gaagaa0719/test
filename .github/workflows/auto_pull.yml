@@ -1,0 +1,17 @@
+name: Auto Pull on Push
+
+on:
+  push:
+    branches:
+      - main # プッシュ対象のブランチ名（例: main）
+
+jobs:
+  auto-pull:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v2
+
+      - name: Pull the latest changes
+        run: git pull origin main # プッシュ先のブランチに合わせて変更
